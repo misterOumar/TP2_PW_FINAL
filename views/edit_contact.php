@@ -8,7 +8,7 @@
 
 <body>
     <h1>Modifier un contact</h1>
-    <form action="index.php?action=edit&id=<?= $contact->id ?>" method="POST">
+    <form action="index.php?page=edit&id=<?= $contact->id ?>" method="POST">
         <label for="nom">Nom:</label>
         <input type="text" name="nom" id="nom" value="<?= $contact->nom ?>" required><br>
 

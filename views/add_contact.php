@@ -8,7 +8,7 @@
 
 <body>
     <h1>Ajouter un contact</h1>
-    <form action="index.php?action=add" method="POST">
+    <form action="index.php?page=add" method="POST">
         <label for="nom">Nom:</label>
         <input type="text" name="nom" id="nom" required><br>
 

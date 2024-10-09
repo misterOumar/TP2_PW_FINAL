@@ -14,7 +14,7 @@
     <p>Email: <?= $contact->email ?></p>
     <p>Téléphone: <?= $contact->telephone ?></p>
 
-    <form action="index.php?action=delete&id=<?= $contact->id ?>" method="POST">
+    <form action="index.php?page=delete&id=<?= $contact->id ?>" method="POST">
         <input type="submit" value="Confirmer">
     </form>
 </body>
