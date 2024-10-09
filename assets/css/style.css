@@ -1,0 +1,242 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url("./../images/bgAnimated.svg") no-repeat center/cover;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.wrapper {
+    width: 90%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(50px);
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 40px 35px 55px;
+    margin: 0 10px;
+}
+
+.wrapper .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper h1 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.input-box {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    /* background: #072F16; */
+}
+
+.input-field {
+
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.input-field #searchInput {
+    width: 30rem;
+}
+
+.input-field input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    outline: none;
+    font-size: 16px;
+    color: #fff;
+    border-radius: 6px;
+    padding: 15px 15px 15px 40px;
+}
+
+.input-field input::placeholder {
+    color: #fff;
+}
+
+.input-field i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+/* btn started */
+a {
+    text-decoration: none;
+    color: #fff;
+    transition: color.3s ease;
+    text-wrap: nowrap;
+}
+
+.button {
+    padding: 15px 20px;
+    font-size: 16px;
+    background: transparent;
+    border: none;
+    position: relative;
+    color: #f0f0f0;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.button::after,
+.button::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: -99999;
+    transition: all .4s;
+}
+
+.button::before {
+    transform: translate(0%, 0%);
+    width: 100%;
+    height: 100%;
+    background: #28282d;
+    border-radius: 10px;
+}
+
+.button::after {
+    transform: translate(10px, 10px);
+    width: 35px;
+    height: 35px;
+    background: #ffffff15;
+    backdrop-filter: blur(5px);
+    border-radius: 50px;
+}
+
+.button:hover::before {
+    transform: translate(5%, 20%);
+    width: 110%;
+    height: 110%;
+}
+
+.button:hover::after {
+    border-radius: 10px;
+    transform: translate(0, 0);
+    width: 100%;
+    height: 100%;
+}
+
+.button:active::after {
+    transition: 0s;
+    transform: translate(0, 5%);
+}
+
+/* btn end */
+
+.error-box {
+    background-color: #e21b5a;
+    padding: 0.4rem;
+    border-radius: 10px;
+}
+
+
+.wrapper i#error-icon {
+    color: #e21b5a;
+    font-size: 10rem;
+    transition: color 0.3s ease;
+    transform: opacity(1);
+    transform: scale(1);
+    animation: error-icon-anim 1.6s ease forwards infinite;
+    text-align: center;
+    display: block;
+}
+
+@keyframes error-icon-anim {
+    0% {
+        transform: opacity(0);
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+        transform: opacity(0.5);
+    }
+
+    100% {
+        transform: opacity(1);
+    }
+}
+
+table {
+    border: 1px solid;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+}
+
+table td,
+tr {
+    border: 1px solid;
+    padding: 0.4rem;
+    transition: ease-in-out 0.2s;
+}
+
+td.action {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1rem;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+
+}
+
+td.action i {
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+    transform: scale(1);
+    color: #fff;
+    animation: hover-icon-anim 0.5s ease;
+
+}
+
+td.action i:hover {
+    transform: scale(1.2);
+    color: #28282d;
+    transition: color 0.3s ease;
+
+}
+
+td.action a:last-child i {
+    color: #e21b5a;
+}
+
+tr:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10rem;
+}

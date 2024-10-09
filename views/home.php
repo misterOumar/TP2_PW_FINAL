@@ -5,33 +5,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link
+        href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+        rel="stylesheet" />
     <title>Liste des contacts</title>
 </head>
 
 <body>
-    <h1>Liste des contacts</h1>
-
-    <!-- Formulaire de recherche -->
-    <form action="index.php" method="GET">
-        <input type="hidden" name="page" value="home"> <!-- Maintenir la page actuelle -->
-        <input type="text" name="search" placeholder="Rechercher un contact..." value="<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>">
-        <button type="submit">Rechercher</button>
-    </form>
-
-    <a href="index.php?page=add">Ajouter un  contact</a>
+    <div class="wrapper">
 
 
-    <table>
-        <thead>
-            <tr>
-                <th>Nom</th>
-                <th>Prénom</th>
-                <th>Email</th>
-                <th>Téléphone</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
+        <h1>Liste des contacts 👍</h1>
+
+        <!-- Affichage des messages d'erreur ou de succès -->
+        <?php if (isset($_SESSION['flash_message'])): ?>
+            <div class="flash-message <?= $_SESSION['flash_message']['type'] ?>"><?= $_SESSION['flash_message']['message'] ?></div>
+            <?php unset($_SESSION['flash_message']); ?>
+        <?php endif ?>
+
+        <div class="flex">
+
+
+            <div class="input-field">
+                <input type="text" name="search" id="searchInput" placeholder="Rechercher un contact..." value="<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>">
+                <i class='bx bx-search-alt-2'></i>
+            </div>
+
+
+            <a href="index.php?page=add" class="button">Ajouter un contact</a>
+        </div>
+
+
+        <p>Nombre de contacts : <?= count($contacts) ?> </p>
+
+        <table class="contactsTable"">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Email</th>
+                    <th>Téléphone</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="contactTableBody">
             <?php if (count($contacts) > 0): ?>
                 <?php foreach ($contacts as $contact): ?>
                     <tr>
@@ -39,10 +57,10 @@
                         <td><?= htmlspecialchars($contact->getPrenom()) ?></td>
                         <td><?= htmlspecialchars($contact->getEmail()) ?></td>
                         <td><?= htmlspecialchars($contact->getTelephone()) ?></td>
-                        <td>
-                            <a href="index.php?page=view&id=<?= $contact->getId() ?>">Voir</a>
-                            <a href="index.php?page=edit&id=<?= $contact->getId() ?>">Modifier</a>
-                            <a href="index.php?page=delete&id=<?= $contact->getId() ?>">Supprimer</a>
+                        <td class="action">
+                            <a href="index.php?page=view&id=<?= $contact->getId() ?>"><i class='bx bx-show'></i></a>
+                            <a href="index.php?page=edit&id=<?= $contact->getId() ?>"><i class='bx bx-pencil'></i></a>
+                            <a href="index.php?page=delete&id=<?= $contact->getId() ?>"><i class='bx bx-trash-alt'></i></a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -51,8 +69,15 @@
                     <td colspan="5">Aucun contact trouvé.</td>
                 </tr>
             <?php endif; ?>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./assets/JS/app.js">
+     
+    </script>
+
 </body>
 
 </html>
