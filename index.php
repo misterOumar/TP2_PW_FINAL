@@ -36,5 +36,5 @@ $controller->index();
 echo "Le contrôleur $controllerName n'a pas pu être trouvé.";
 }
 } else {
-echo "Page non trouvée.";
+header('location:404.php');
 }

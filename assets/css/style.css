@@ -144,6 +144,10 @@ a {
     transform: translate(0, 5%);
 }
 
+button.delete::before {
+    background: #e21b5a;
+}
+
 /* btn end */
 
 .error-box {

@@ -32,10 +32,10 @@ class HomeController
                     <td>{$contact->getPrenom()}</td>
                     <td>{$contact->getEmail()}</td>
                     <td>{$contact->getTelephone()}</td>
-                    <td>
-                    <a href='index.php?action=view&id={$contact->getId()}'>Voir</a>
-                    <a href='index.php?action=edit&id={$contact->getId()}'>Modifier</a>
-                    <a href='index.php?action=delete&id={$contact->getId()}'>Supprimer</a>
+                    <td class='action'>
+                    <a href='index.php?page=view&id={$contact->getId()}'><i class='bx bx-show'></i></a>
+                    <a href='index.php?page=edit&id={$contact->getId()}'><i class='bx bx-pencil'></i></a>
+                    <a href='index.php?page=delete&id={$contact->getId()}'><i class='bx bx-trash-alt'></i></a>
                     </td>
                     </tr>";
                 }
